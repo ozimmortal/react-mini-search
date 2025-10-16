@@ -1,0 +1,72 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+    	"experimentalScannerIgnores": ["dist", "node_modules"]
+  	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 100
+	},
+	"linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off",
+		"noUnknownAtRules":"off"
+      },
+	  "a11y":{
+		"noStaticElementInteractions":"off"
+	  },
+      "complexity": {
+        "noForEach": "info"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "style": {
+        "noUnusedTemplateLiteral": "off",
+
+        "noUselessElse": "off",
+        "noNonNullAssertion": "off",
+        "useNumberNamespace": "off",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": true,
+            "requireAscii": true,
+            "filenameCases": ["kebab-case", "export"]
+          }
+        }
+      }
+    }
+  },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons":"asNeeded",
+			"bracketSpacing":true,
+			"quoteProperties":"asNeeded",
+			"bracketSameLine":false
+		}
+	},
+	"json": {
+		"formatter": {
+			"indentStyle": "space"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	}
+}
