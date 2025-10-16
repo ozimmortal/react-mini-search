@@ -6,13 +6,13 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
-  ".": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/styles.css"
   },
-  "./styles.css": "./dist/styles.css"
-},
   "scripts": {
     "build": "pnpm run build:js && pnpm run build:css",
     "build:js": "tsup",
@@ -38,6 +38,7 @@
   "dependencies": {
     "-": "^0.0.1",
     "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",

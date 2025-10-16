@@ -14,3 +14,17 @@ export interface UseSearchProps<T extends Document> {
 }
 
 export type Result = SearchResult & { [key: string]: any }
+
+
+export interface SearchComponentProps extends UseSearchProps<Document> {
+	placeholder?: string
+	onResultClick?: (result: Result) => void
+	debounceMs?: number
+	minQueryLength?: number
+	showClearButton?: boolean
+	emptyStateMessage?: string
+	loadingMessage?: string
+	className?: string
+	resultClassName?: string
+	renderResult?: (result: Result) => React.ReactNode
+}

@@ -1,24 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useSearch } from "@/hooks/useSearch"
-import type { Document, Result, UseSearchProps } from "@/lib/type"
+import type { Result, SearchComponentProps } from "@/lib/type"
 import { cn } from "@/lib/utils"
 import { Loader2, Search, X } from "lucide-react"
-import type React from "react"
 import { useCallback, useEffect, useState } from "react"
-
-export interface SearchComponentProps extends UseSearchProps<Document> {
-	placeholder?: string
-	onResultClick?: (result: Result) => void
-	debounceMs?: number
-	minQueryLength?: number
-	showClearButton?: boolean
-	emptyStateMessage?: string
-	loadingMessage?: string
-	className?: string
-	resultClassName?: string
-	renderResult?: (result: Result) => React.ReactNode
-}
 
 export function InlineSearch({
 	documents,
