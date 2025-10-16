@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import type { Document,Result,UseSearchProps } from "@/lib/type"
+import { useSearch } from "@/hooks/useSearch"
+import type { Document, Result, UseSearchProps } from "@/lib/type"
 import { cn } from "@/lib/utils"
 import { Loader2, Search, X } from "lucide-react"
 import type React from "react"
 import { useCallback, useEffect, useState } from "react"
-import { useSearch } from "@/hooks/useSearch"
-
-
-
 
 export interface SearchComponentProps extends UseSearchProps<Document> {
 	placeholder?: string
@@ -24,10 +21,10 @@ export interface SearchComponentProps extends UseSearchProps<Document> {
 }
 
 export function InlineSearch({
-    documents,
-    fields,
-    storeFields,
-    searchOptions,
+	documents,
+	fields,
+	storeFields,
+	searchOptions,
 	placeholder = "Search...",
 	onResultClick,
 	debounceMs = 300,
@@ -40,38 +37,38 @@ export function InlineSearch({
 	renderResult,
 }: SearchComponentProps) {
 	const [query, setQuery] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [hasSearched, setHasSearched] = useState(false)
+	const [isLoading, setIsLoading] = useState(false)
+	const [hasSearched, setHasSearched] = useState(false)
 
-  // use your hook
-  const { search, results, clearSearch } = useSearch({
-    documents,
-    fields,
-    storeFields,
-    searchOptions,
-  })
+	// use your hook
+	const { search, results, clearSearch } = useSearch({
+		documents,
+		fields,
+		storeFields,
+		searchOptions,
+	})
 
-  const performSearch = useCallback(
-    (term: string) => {
-      if (term.length < minQueryLength) {
-        clearSearch()
-        setHasSearched(false)
-        return
-      }
+	const performSearch = useCallback(
+		(term: string) => {
+			if (term.length < minQueryLength) {
+				clearSearch()
+				setHasSearched(false)
+				return
+			}
 
-      setIsLoading(true)
-      setHasSearched(true)
+			setIsLoading(true)
+			setHasSearched(true)
 
-      try{
-        search(term)
-      }catch (error) {
-        console.error("Search error:", error)
-      }finally{
-        setIsLoading(false)
-      }
-    },
-    [search, clearSearch, minQueryLength],
-  )
+			try {
+				search(term)
+			} catch (error) {
+				console.error("Search error:", error)
+			} finally {
+				setIsLoading(false)
+			}
+		},
+		[search, clearSearch, minQueryLength],
+	)
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -83,7 +80,7 @@ export function InlineSearch({
 
 	const handleClear = () => {
 		setQuery("")
-        clearSearch()
+		clearSearch()
 		setHasSearched(false)
 	}
 
