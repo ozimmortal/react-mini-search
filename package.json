@@ -20,8 +20,8 @@
     "check": "biome check --apply"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "https://github.com/ozimmortal",
+  "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "peerDependencies": {
     "react": ">=17.0.0",
