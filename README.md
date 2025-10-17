@@ -14,7 +14,7 @@ A tiny, dependency-light React search UI powered by MiniSearch and Tailwind CSS.
 Install peer dependencies in your project (React >= 17) and then add this package as a dependency. Example using pnpm:
 
 ```powershell
-pnpm add -D react-mini-search
+pnpm add -D @ozbart/react-mini-search
 ```
 
 ## Quick start
