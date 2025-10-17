@@ -1,8 +1,12 @@
 import type { SearchOptions, SearchResult } from "minisearch"
+
 export type Document = {
 	id: string | number
 	title: string
 	url?: string
+	description?: string
+	category?: string
+	icon?: React.ReactNode
 	[key: string]: any
 }
 
@@ -14,7 +18,6 @@ export interface UseSearchProps<T extends Document> {
 }
 
 export type Result = SearchResult & { [key: string]: any }
-
 
 export interface SearchComponentProps extends UseSearchProps<Document> {
 	placeholder?: string
